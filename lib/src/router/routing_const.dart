@@ -1,0 +1,14 @@
+import 'dart:core';
+
+const String MainRoute = '/';
+
+const String AuthRoute = '/auth/login';
+const String RegisterRoute = '/auth/register';
+
+const String HomeRoute = '/restaurants';
+const String MapRoute = '/restaurants/map';
+const String FavouritesRoute = '/restaurants/favorite';
+const String SearchRoute = '/restaurants/search';
+const String ProfileRoute = '/profile';
+
+const String RestaurantDetailRoute = '/restaurants/detail';

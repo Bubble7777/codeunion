@@ -1,3 +1,4 @@
+import 'package:codeunion/src/router/router.dart';
 import 'package:codeunion/src/screens/auth/auth_screen.dart';
 import 'package:codeunion/src/screens/register/register_screen.dart';
 import 'package:flutter/cupertino.dart';
@@ -13,8 +14,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoApp(
       debugShowCheckedModeBanner: false,
-      home: //AuthScreen(),
-          RegisterScreen(),
+      onGenerateRoute: AppRouter.generateRoute,
+      home: AuthScreen(),
+      // RegisterScreen(),
     );
   }
 }

@@ -1,3 +1,5 @@
+import 'package:codeunion/src/router/routing_const.dart';
+import 'package:codeunion/src/screens/register/register_screen.dart';
 import 'package:flutter/cupertino.dart';
 
 class AuthScreen extends StatelessWidget {
@@ -75,7 +77,9 @@ class AuthScreen extends StatelessWidget {
                     fontWeight: FontWeight.w700,
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, RegisterRoute);
+                },
               ),
             ),
           ],
