@@ -1,4 +1,5 @@
 import 'package:codeunion/src/screens/auth/auth_screen.dart';
+import 'package:codeunion/src/screens/register/register_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoApp(
       debugShowCheckedModeBanner: false,
-      home: AuthScreen(),
+      home: //AuthScreen(),
+          RegisterScreen(),
     );
   }
 }
