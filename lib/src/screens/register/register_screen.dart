@@ -73,9 +73,7 @@ class RegisterScreen extends StatelessWidget {
               horizontal: 16.0,
               vertical: 42.0,
             ),
-            child: CustomButton(
-              title: 'Создать аккаунт',
-            ),
+            child: CustomButton(title: 'Создать аккаунт', onPressed: () {}),
           ),
         ],
       ),

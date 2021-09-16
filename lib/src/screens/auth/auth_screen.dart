@@ -36,7 +36,10 @@ class AuthScreen extends StatelessWidget {
             ),
             Padding(
               padding: AppPadding.horizontal,
-              child: CustomButton(title: 'Войти'),
+              child: CustomButton(
+                title: 'Войти',
+                onPressed: () {},
+              ),
             ),
             SizedBox(
               height: 19.0,
