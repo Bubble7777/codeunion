@@ -1,3 +1,4 @@
+import 'package:codeunion/src/common/constans/color_constans.dart';
 import 'package:codeunion/src/router/router.dart';
 import 'package:codeunion/src/screens/auth/auth_screen.dart';
 import 'package:codeunion/src/screens/register/register_screen.dart';
@@ -15,6 +16,9 @@ class MyApp extends StatelessWidget {
     return CupertinoApp(
       debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRouter.generateRoute,
+      theme: CupertinoThemeData(
+        scaffoldBackgroundColor: AppColor.scaffoldBackground,
+      ),
       home: AuthScreen(),
       // RegisterScreen(),
     );

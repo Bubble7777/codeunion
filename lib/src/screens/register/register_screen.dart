@@ -1,3 +1,8 @@
+import 'package:codeunion/src/common/constans/color_constans.dart';
+import 'package:codeunion/src/common/constans/padding_constans.dart';
+import 'package:codeunion/src/common/widgets/custom_button.dart';
+import 'package:codeunion/src/common/widgets/custom_text_field.dart';
+import 'package:codeunion/src/common/widgets/text_field_divider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -31,53 +36,20 @@ class RegisterScreen extends StatelessWidget {
           SizedBox(
             height: 32.0,
           ),
-          CupertinoTextField(
-            decoration: BoxDecoration(
-              border: Border(),
-              color: CupertinoColors.white,
-            ),
-            padding: EdgeInsets.symmetric(
-              vertical: 19.0,
-              horizontal: 16.0,
-            ),
+          CustomTextField(
             placeholder: 'Логин',
           ),
-          Container(
-            height: 1.0,
-            margin: EdgeInsets.symmetric(horizontal: 16.0),
-            color: Color(0xFFE0E6ED),
-          ),
-          CupertinoTextField(
-            decoration: BoxDecoration(
-              color: CupertinoColors.white,
-            ),
-            padding: EdgeInsets.symmetric(
-              vertical: 19.0,
-              horizontal: 16.0,
-            ),
+          CustomTextDivider(),
+          CustomTextField(
             placeholder: 'Телефон',
           ),
-          Container(
-            height: 1.0,
-            color: Color(0xFFE0E6ED),
-            margin: EdgeInsets.symmetric(horizontal: 16.0),
-          ),
-          CupertinoTextField(
-            decoration: BoxDecoration(
-              color: CupertinoColors.white,
-            ),
-            padding: EdgeInsets.symmetric(
-              vertical: 19.0,
-              horizontal: 16.0,
-            ),
+          CustomTextDivider(),
+          CustomTextField(
             placeholder: 'Почта',
           ),
-          Container(
-            height: 1.0,
-            color: Color(0xFFE0E6ED),
-            margin: EdgeInsets.symmetric(horizontal: 16.0),
-          ),
-          CupertinoTextField(
+          CustomTextDivider(),
+          CustomTextField(
+            placeholder: 'Пароль',
             suffix: Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: 23.0, vertical: 16.0),
@@ -87,14 +59,6 @@ class RegisterScreen extends StatelessWidget {
                 width: 24,
               ),
             ),
-            decoration: BoxDecoration(
-              color: CupertinoColors.white,
-            ),
-            padding: EdgeInsets.symmetric(
-              vertical: 19.0,
-              horizontal: 16.0,
-            ),
-            placeholder: 'Пароль',
           ),
           Spacer(),
           Padding(
@@ -102,14 +66,7 @@ class RegisterScreen extends StatelessWidget {
               horizontal: 16.0,
               vertical: 42.0,
             ),
-            child: CupertinoButton(
-              color: Color(0xFF4631D2),
-              child: Text(
-                'Создать аккаунт',
-                style: TextStyle(fontWeight: FontWeight.w600),
-              ),
-              onPressed: () {},
-            ),
+            child: CustomButton(title: 'Создать аккаунт', onPressed: () {}),
           ),
         ],
       ),
