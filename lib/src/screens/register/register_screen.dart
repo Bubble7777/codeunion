@@ -48,7 +48,8 @@ class RegisterScreen extends StatelessWidget {
             placeholder: 'Почта',
           ),
           CustomTextDivider(),
-          CupertinoTextField(
+          CustomTextField(
+            placeholder: 'Пароль',
             suffix: Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: 23.0, vertical: 16.0),
@@ -58,14 +59,6 @@ class RegisterScreen extends StatelessWidget {
                 width: 24,
               ),
             ),
-            decoration: BoxDecoration(
-              color: AppColor.white,
-            ),
-            padding: EdgeInsets.symmetric(
-              vertical: 19.0,
-              horizontal: 16.0,
-            ),
-            placeholder: 'Пароль',
           ),
           Spacer(),
           Padding(

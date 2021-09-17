@@ -4,9 +4,11 @@ class CustomTextField extends StatelessWidget {
   const CustomTextField({
     Key? key,
     this.placeholder = 'Введите',
+    this.suffix,
   }) : super(key: key);
 
   final String placeholder;
+  final Widget? suffix;
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +22,7 @@ class CustomTextField extends StatelessWidget {
         horizontal: 16.0,
       ),
       placeholder: placeholder,
+      suffix: suffix,
     );
   }
 }
