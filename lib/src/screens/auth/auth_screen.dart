@@ -4,7 +4,7 @@ import 'package:codeunion/src/common/widgets/custom_button.dart';
 import 'package:codeunion/src/common/widgets/custom_text_field.dart';
 import 'package:codeunion/src/common/widgets/text_field_divider.dart';
 import 'package:codeunion/src/router/routing_const.dart';
-import 'package:codeunion/src/screens/register/register_screen.dart';
+
 import 'package:flutter/cupertino.dart';
 
 class AuthScreen extends StatelessWidget {
