@@ -1,8 +1,9 @@
+import 'package:codeunion/src/screens/home/home_screen.dart';
 import 'package:codeunion/src/screens/profile/profile_screen.dart';
 import 'package:codeunion/src/screens/register/register_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:codeunion/src/screens/auth/auth_screen.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter/material.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -18,17 +19,18 @@ class MainScreen extends StatelessWidget {
             ),
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.gift),
+            icon: Icon(
+              CupertinoIcons.map,
+            ),
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.person),
+            icon: Icon(
+              CupertinoIcons.heart,
+            ),
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'assets/icons/profile_avatar.svg',
-              alignment: Alignment.center,
-              width: 17,
-              height: 17,
+            icon: Icon(
+              CupertinoIcons.person,
             ),
           ),
         ],
@@ -38,13 +40,14 @@ class MainScreen extends StatelessWidget {
           builder: (context) {
             switch (index) {
               case 0:
-                return AuthScreen();
+                return HomeScreen();
               case 1:
-                return RegisterScreen();
+                return AuthScreen();
               case 2:
-                return ProfileScreen();
+                return RegisterScreen();
               case 3:
                 return ProfileScreen();
+
               default:
                 return ProfileScreen();
             }

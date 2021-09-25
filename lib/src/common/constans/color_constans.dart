@@ -10,7 +10,7 @@ class AppColor {
 
   //TextColor
   static const Color black = Color(0xFF000000);
-  static const Color emailColor = Color(0xFF929292);
+  static const Color grayColor = Color(0xFF929292);
 
   //ButtonColor
   static const Color main = Color(0xFF4631D2);

@@ -1,4 +1,5 @@
 import 'package:codeunion/src/common/constans/color_constans.dart';
+import 'package:codeunion/src/common/constans/icons_constans.dart';
 import 'package:codeunion/src/common/constans/padding_constans.dart';
 import 'package:codeunion/src/common/widgets/custom_button.dart';
 import 'package:codeunion/src/common/widgets/custom_text_field.dart';
@@ -54,7 +55,7 @@ class RegisterScreen extends StatelessWidget {
               padding:
                   const EdgeInsets.symmetric(horizontal: 23.0, vertical: 16.0),
               child: SvgPicture.asset(
-                'assets/icons/password.svg',
+                AppIcon.password,
                 height: 19,
                 width: 24,
               ),
