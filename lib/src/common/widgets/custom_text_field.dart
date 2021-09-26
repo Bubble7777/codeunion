@@ -5,14 +5,17 @@ class CustomTextField extends StatelessWidget {
     Key? key,
     this.placeholder = 'Введите',
     this.suffix,
+    this.controller,
   }) : super(key: key);
 
   final String placeholder;
   final Widget? suffix;
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
     return CupertinoTextField(
+      controller: controller,
       decoration: BoxDecoration(
         border: Border(),
         color: CupertinoColors.white,
