@@ -1,5 +1,6 @@
 import 'package:codeunion/src/common/constans/color_constans.dart';
 import 'package:codeunion/src/router/router.dart';
+import 'package:codeunion/src/router/routing_const.dart';
 import 'package:codeunion/src/screens/auth/auth_screen.dart';
 import 'package:codeunion/src/screens/home/home_screen.dart';
 import 'package:codeunion/src/screens/main/main_screen.dart';
@@ -22,10 +23,11 @@ class MyApp extends StatelessWidget {
       theme: CupertinoThemeData(
         scaffoldBackgroundColor: AppColor.scaffoldBackground,
       ),
-      home: //HomeScreen(),
-          MainScreen(),
-      // AuthScreen(),
-      // RegisterScreen(),
+      initialRoute: AuthRoute,
+      // home: //HomeScreen(),
+      //     MainScreen(),
+      // // AuthScreen(),
+      // // RegisterScreen(),
     );
   }
 }
