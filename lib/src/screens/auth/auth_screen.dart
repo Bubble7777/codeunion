@@ -7,6 +7,7 @@ import 'package:codeunion/src/router/routing_const.dart';
 import 'package:dio/dio.dart';
 
 import 'package:flutter/cupertino.dart';
+import 'package:hive_flutter/adapters.dart';
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({Key? key}) : super(key: key);
@@ -17,7 +18,6 @@ class AuthScreen extends StatefulWidget {
 
 class _AuthScreenState extends State<AuthScreen> {
   Dio dio = Dio();
-
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
@@ -52,7 +52,7 @@ class _AuthScreenState extends State<AuthScreen> {
               child: CustomButton(
                 title: 'Войти',
                 onPressed: () async {
-                  print(emailController.text);
+                  Box tokensBox = Hive.box('tokens');
 
                   try {
                     Response response = await dio.post(
@@ -62,8 +62,14 @@ class _AuthScreenState extends State<AuthScreen> {
                         'password': passwordController.text,
                       },
                     );
+                    tokensBox.put(
+                        'access', response.data['tokens']['accessToken']);
+                    tokensBox.put(
+                        'refresh', response.data['tokens']['refreshToken']);
 
-                    print(response.data['tokens']['accessToken']);
+                    print(tokensBox.get('access'));
+                    print(tokensBox.get('refresh'));
+
                     Navigator.pushReplacementNamed(context, MainRoute);
                   } on DioError catch (e) {
                     print(e.response!.data);

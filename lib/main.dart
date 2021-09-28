@@ -8,13 +8,34 @@ import 'package:codeunion/src/screens/profile/profile_screen.dart';
 import 'package:codeunion/src/screens/register/register_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
+  await Hive.openBox('tokens');
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   // This widget is the root of your application.
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  String initialRoute = AuthRoute;
+
+  @override
+  void initState() {
+    Box tokensBox = Hive.box('tokens');
+
+    if (tokensBox.get('access') != null || tokensBox.get('refresh') != null) {
+      initialRoute = MainRoute;
+    }
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return CupertinoApp(
@@ -23,7 +44,7 @@ class MyApp extends StatelessWidget {
       theme: CupertinoThemeData(
         scaffoldBackgroundColor: AppColor.scaffoldBackground,
       ),
-      initialRoute: AuthRoute,
+      initialRoute: initialRoute,
       // home: //HomeScreen(),
       //     MainScreen(),
       // // AuthScreen(),
