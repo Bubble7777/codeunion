@@ -1,5 +1,6 @@
 import 'package:codeunion/src/common/constans/color_constans.dart';
 import 'package:codeunion/src/common/constans/padding_constans.dart';
+import 'package:codeunion/src/common/models/tokens_model.dart';
 import 'package:codeunion/src/common/widgets/custom_button.dart';
 import 'package:codeunion/src/common/widgets/custom_text_field.dart';
 import 'package:codeunion/src/common/widgets/text_field_divider.dart';
@@ -62,13 +63,11 @@ class _AuthScreenState extends State<AuthScreen> {
                         'password': passwordController.text,
                       },
                     );
-                    tokensBox.put(
-                        'access', response.data['tokens']['accessToken']);
-                    tokensBox.put(
-                        'refresh', response.data['tokens']['refreshToken']);
+                    TokensModel tokensModel =
+                        TokensModel.fromJson(response.data['tokens']);
 
-                    print(tokensBox.get('access'));
-                    print(tokensBox.get('refresh'));
+                    tokensBox.put('access', tokensModel.access);
+                    tokensBox.put('refresh', tokensModel.refresh);
 
                     Navigator.pushReplacementNamed(context, MainRoute);
                   } on DioError catch (e) {
