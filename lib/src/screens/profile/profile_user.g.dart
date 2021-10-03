@@ -8,15 +8,17 @@ part of 'profile_user.dart';
 
 ProfileUser _$ProfileUserFromJson(Map<String, dynamic> json) {
   return ProfileUser(
-    login: json['loginToken'] as String,
-    avatar: json['avatarToken'] as String,
-    email: json['emailToken'] as String,
+    id: json['id'] as int,
+    nickname: json['nickname'] as String,
+    avatar: json['avatar'] as String,
+    email: json['email'] as String,
   );
 }
 
 Map<String, dynamic> _$ProfileUserToJson(ProfileUser instance) =>
     <String, dynamic>{
-      'loginToken': instance.login,
-      'avatarToken': instance.avatar,
-      'emailToken': instance.email,
+      'nickname': instance.nickname,
+      'avatar': instance.avatar,
+      'id': instance.id,
+      'email': instance.email,
     };

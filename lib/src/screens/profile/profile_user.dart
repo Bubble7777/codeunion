@@ -6,15 +6,20 @@ part 'profile_user.g.dart';
 
 @JsonSerializable()
 class ProfileUser {
-  @JsonKey(name: 'loginToken')
-  final String login;
-  @JsonKey(name: 'avatarToken')
+  @JsonKey(name: 'nickname')
+  final String nickname;
+
   final String avatar;
-  @JsonKey(name: 'emailToken')
+
+  @JsonKey(name: 'id')
+  final int id;
+
+  @JsonKey(name: 'email')
   final String email;
 
   const ProfileUser({
-    required this.login,
+    required this.id,
+    required this.nickname,
     required this.avatar,
     required this.email,
   });
