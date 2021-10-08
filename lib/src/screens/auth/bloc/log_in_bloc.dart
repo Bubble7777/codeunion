@@ -16,6 +16,7 @@ class LogInBloc extends Bloc<LogInEvent, LogInState> {
   @override
   Stream<LogInState> mapEventToState(LogInEvent event) async* {
     if (event is LogInPressed) {
+      print('Я работаю и отправляю запрос на сервер!!');
       LogInLoading();
       try {
         Response response = await dio.post(
