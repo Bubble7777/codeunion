@@ -11,7 +11,7 @@ class AppRouter {
     switch (routeSettings.name) {
       case AuthRoute:
         return CupertinoPageRoute(
-          builder: (context) => BlocProvider(
+          builder: (context) => BlocProvider<LogInBloc>(
             create: (context) => LogInBloc(),
             child: AuthScreen(),
           ),

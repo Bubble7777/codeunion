@@ -10,7 +10,7 @@ class LogInLoading extends LogInState {}
 class LogInLoaded extends LogInState {}
 
 class LogInFailed extends LogInState {
-  final String? message;
+  final String message;
 
   LogInFailed({
     required this.message,

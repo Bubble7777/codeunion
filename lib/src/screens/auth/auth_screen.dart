@@ -50,20 +50,43 @@ class _AuthScreenState extends State<AuthScreen> {
             ),
             Padding(
               padding: AppPadding.horizontal,
-              child: BlocBuilder<LogInBloc, LogInState>(
-                builder: (context, state) {
-                  if (state is LogInLoading) {
-                    return CupertinoActivityIndicator();
+              child: BlocConsumer<LogInBloc, LogInState>(
+                bloc: BlocProvider.of(context),
+                listener: (context, state) {
+                  if (state is LogInLoaded) {
+                    Navigator.pushReplacementNamed(context, MainRoute);
+                  } else if (state is LogInFailed) {
+                    showCupertinoModalPopup(
+                      context: context,
+                      builder: (context) {
+                        return CupertinoAlertDialog(
+                          title: Text('Ошибка'),
+                          content: Text(state.message),
+                          actions: [
+                            CupertinoButton(
+                              child: Text('ОК'),
+                              onPressed: () => Navigator.pop(context),
+                            ),
+                          ],
+                        );
+                      },
+                    );
                   }
+                },
+                builder: (context, state) {
                   return CustomButton(
-                      title: 'Войти',
-                      onPressed: () {
-                        context.read<LogInBloc>().add(
-                              LogInPressed(
-                                  email: emailController.text,
-                                  password: passwordController.text),
-                            );
-                      });
+                    title: 'Войти',
+                    onPressed: state is LogInLoading
+                        ? null
+                        : () {
+                            context.read<LogInBloc>().add(
+                                  LogInPressed(
+                                    email: emailController.text,
+                                    password: passwordController.text,
+                                  ),
+                                );
+                          },
+                  );
                 },
               ),
             ),

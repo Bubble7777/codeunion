@@ -2,6 +2,7 @@ import 'package:codeunion/src/common/constans/color_constans.dart';
 import 'package:codeunion/src/router/router.dart';
 import 'package:codeunion/src/router/routing_const.dart';
 import 'package:codeunion/src/screens/auth/auth_screen.dart';
+import 'package:codeunion/src/screens/auth/bloc/log_in_bloc.dart';
 import 'package:codeunion/src/screens/home/home_screen.dart';
 import 'package:codeunion/src/screens/main/main_screen.dart';
 import 'package:codeunion/src/screens/profile/profile_screen.dart';
@@ -9,6 +10,7 @@ import 'package:codeunion/src/screens/register/register_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
   await Hive.initFlutter();
@@ -45,9 +47,13 @@ class _MyAppState extends State<MyApp> {
         scaffoldBackgroundColor: AppColor.scaffoldBackground,
       ),
       initialRoute: initialRoute,
-      // home: //HomeScreen(),
+      // home: BlocProvider<LogInBloc>(
+      //   create: (context) => LogInBloc(),
+      //   child: AuthScreen(),
+      // ),
+      //HomeScreen(),
       //     MainScreen(),
-      // // AuthScreen(),
+      //AuthScreen(),
       // // RegisterScreen(),
     );
   }

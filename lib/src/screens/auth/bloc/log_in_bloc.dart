@@ -17,7 +17,8 @@ class LogInBloc extends Bloc<LogInEvent, LogInState> {
   Stream<LogInState> mapEventToState(LogInEvent event) async* {
     if (event is LogInPressed) {
       print('Я работаю и отправляю запрос на сервер!!');
-      LogInLoading();
+      yield LogInLoading();
+
       try {
         Response response = await dio.post(
           'http://api.codeunion.kz/api/v1/auth/login',
@@ -30,9 +31,11 @@ class LogInBloc extends Bloc<LogInEvent, LogInState> {
 
         tokensBox.put('access', tokensModel.access);
         tokensBox.put('refresh', tokensModel.refresh);
+
         yield LogInLoaded();
       } on DioError catch (e) {
         yield LogInFailed(message: 'Неправильный логин или пароль');
+
         throw e;
       } catch (e) {
         yield LogInFailed(message: 'Произошла ошибка');
