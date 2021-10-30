@@ -1,6 +1,8 @@
 import 'package:codeunion/src/router/routing_const.dart';
 import 'package:codeunion/src/screens/auth/auth_screen.dart';
 import 'package:codeunion/src/screens/auth/bloc/log_in_bloc.dart';
+import 'package:codeunion/src/screens/main/main_screen.dart';
+import 'package:codeunion/src/screens/register/bloc/log_up_bloc.dart';
 import 'package:codeunion/src/screens/register/register_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -18,12 +20,21 @@ class AppRouter {
         );
       case RegisterRoute:
         return CupertinoPageRoute(
-          builder: (context) => RegisterScreen(),
+          builder: (context) => BlocProvider<LogUpBloc>(
+            create: (context) => LogUpBloc(),
+            child: RegisterScreen(),
+          ),
+        );
+      case MainRoute:
+        return CupertinoPageRoute(
+          builder: (context) => MainScreen(),
         );
       default:
         return CupertinoPageRoute(
-          builder: (context) => AuthScreen(),
-        );
+            builder: (context) => BlocProvider<LogInBloc>(
+                  create: (context) => LogInBloc(),
+                  child: AuthScreen(),
+                ));
     }
   }
 }
