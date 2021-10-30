@@ -1,8 +1,9 @@
+import 'package:codeunion/src/router/router.dart';
 import 'package:codeunion/src/screens/home/home_screen.dart';
 import 'package:codeunion/src/screens/profile/profile_screen.dart';
-import 'package:codeunion/src/screens/register/register_screen.dart';
+
 import 'package:flutter/cupertino.dart';
-import 'package:codeunion/src/screens/auth/auth_screen.dart';
+
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatelessWidget {
@@ -41,17 +42,17 @@ class MainScreen extends StatelessWidget {
         ),
         tabBuilder: (context, index) {
           return CupertinoTabView(
+            onGenerateRoute: AppRouter.generateRoute,
             builder: (context) {
               switch (index) {
                 case 0:
                   return HomeScreen();
                 case 1:
-                  return AuthScreen();
+                  return ProfileScreen();
                 case 2:
-                  return RegisterScreen();
+                  return ProfileScreen();
                 case 3:
                   return ProfileScreen();
-
                 default:
                   return ProfileScreen();
               }
