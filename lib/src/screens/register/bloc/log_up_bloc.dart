@@ -9,8 +9,8 @@ part 'log_up_event.dart';
 part 'log_up_state.dart';
 
 class LogUpBloc extends Bloc<LogUpEvent, LogUpState> {
-  LogUpBloc() : super(LogUpInitial());
-  final Dio dio = Dio();
+  LogUpBloc({required this.dio}) : super(LogUpInitial());
+  final Dio dio;
   final Box tokensBox = Hive.box('tokens');
 
   @override
@@ -21,7 +21,7 @@ class LogUpBloc extends Bloc<LogUpEvent, LogUpState> {
 
       try {
         Response response = await dio.post(
-          'http://api.codeunion.kz/api/v1/auth/registration/customer/new',
+          'auth/registration/customer/new',
           data: {
             'email': event.email,
             'nickname': event.nickname,

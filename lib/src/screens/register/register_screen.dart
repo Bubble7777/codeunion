@@ -5,7 +5,7 @@ import 'package:codeunion/src/common/widgets/custom_text_field.dart';
 import 'package:codeunion/src/common/widgets/text_field_divider.dart';
 import 'package:codeunion/src/router/routing_const.dart';
 import 'package:codeunion/src/screens/register/bloc/log_up_bloc.dart';
-import 'package:dio/dio.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -26,7 +26,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final TextEditingController passwordRegController = TextEditingController();
 
   bool obscureText = true;
-  Dio dio = Dio();
+
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
